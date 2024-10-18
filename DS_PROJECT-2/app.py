@@ -66,3 +66,6 @@ def upload():
 
     # Return the message and the original image
     return jsonify({'message': message, 'image': encoded_image}), 200
+
+if __name__ == "__main__":
+    app.run(debug=True)
