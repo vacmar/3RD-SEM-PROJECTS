@@ -42,6 +42,14 @@ def lane_detection(image, min_lines_threshold=1):
 
 def is_valid_line(line):
     # Implement your logic to validate the line
+    for x1, y1, x2, y2 in line:
+        slope = (y2 - y1) / (x2 - x1) if (x2 - x1) != 0 else float('inf')
+        if abs(slope) > 0.5:  # Example condition to filter out near-horizontal lines
+            return True
+    return False
+
+def is_valid_line(line):
+    # Implement your logic to validate the line
     # Example: Filter lines based on slope or position
     for x1, y1, x2, y2 in line:
         slope = (y2 - y1) / (x2 - x1) if (x2 - x1) != 0 else float('inf')
