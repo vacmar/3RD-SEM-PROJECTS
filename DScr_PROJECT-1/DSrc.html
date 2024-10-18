@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation System</title>
+    <link rel="stylesheet" href="DSrc.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <h1>Shortest Path Finder</h1>
+    <div class="container">
+        <div class="input-section">
+            <p>Click on the map to choose Source and Destination</p>
+            <button onclick="resetMap()">Reset Map</button>
+        </div>
+        <div id="map" class="map-container"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="DSrc.js"></script>
+</body>
+</html>

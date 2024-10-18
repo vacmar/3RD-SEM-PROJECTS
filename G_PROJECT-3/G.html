@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <link rel="stylesheet" href="G.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Welcome Popup -->
+    <div class="welcome-popup" id="welcomePopup">
+        <h2>Welcome to our FAQ Section!</h2>
+        <p>Please select a category to see the relevant questions.</p>
+        <button onclick="closeWelcome()">Continue</button>
+    </div>
+
+    <!-- FAQ Container -->
+    <div class="faq-container" id="faqContainer" style="display: none;">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="selection">
+            <p>Select a category:</p>
+            <select id="categorySelect" class="category-select" onchange="loadQuestions()">
+                <option value="">Select a category</option>
+                <option value="1">Data Structure</option>
+                <option value="2">Data Science</option>
+                <option value="3">OOP</option>
+                <option value="4">Digital Principal</option>
+                <option value="5">Operating System</option>
+            </select>
+            <span class="material-icons arrow-icon">arrow_drop_down</span>
+        </div>
+
+        <div id="faqContent">
+            <!-- Questions will load here dynamically via JS -->
+        </div>
+    </div>
+
+    <script src="G.js"></script>
+</body>
+</html>

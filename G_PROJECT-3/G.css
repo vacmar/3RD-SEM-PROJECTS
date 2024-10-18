@@ -1,0 +1,125 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-popup {
+    background: rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.welcome-popup h2 {
+    margin-bottom: 1rem;
+}
+
+.welcome-popup button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.faq-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.selection {
+    margin-bottom: 20px;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #fff;
+    font-size: 16px;
+    -moz-appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+    appearance: none; /* Remove default arrow in Mozilla browsers */
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 24px; /* Adjust size as needed */
+    color: #666; /* Adjust color as needed */
+    pointer-events: none; /* Ensure clicks go through to the select element */
+}
+
+.question {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+    position: top;
+}
+
+.question .material-icons {
+    font-size: 20px;
+    color: #666;
+    margin-left: 10px;
+}
+
+.question.active {
+    background-color: skyblue;
+}
+
+.question:hover {
+    background-color: skyblue;
+}
+
+.answer {
+    padding: 10px;
+    display: none;
+    border-left: 4px solid #4CAF50;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.collapse {
+    display: block;
+    animation: smoothCollapse 0.4s ease-in-out;
+}
+
+@keyframes smoothCollapse {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: auto;
+    }
+}

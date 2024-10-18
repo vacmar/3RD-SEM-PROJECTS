@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lane Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='DS.css') }}">
+</head>
+<body>
+  
+  <div class="upload-area" id="upload-area">
+    Drag & Drop Image Here or Click to Browse
+  </div>
+  <input type="file" id="file-input" style="display: none;" accept="image/*" />
+
+  <div id="result"></div>
+
+  <script src="{{ url_for('static', filename='DS.js') }}"></script>
+</body>
+</html>
