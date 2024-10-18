@@ -20,15 +20,15 @@ def lane_detection(image, min_lines_threshold=1):
     # Define the region of interest (ROI)
     height, width = edges.shape
     mask = np.zeros_like(edges)
-    polygons = np.array([[(0, height), (width, height), (width, 0), (0, 0)]])
+    polygons = np.array([[(0, height), (width, height), (int(width * 0.5), int(height * 0.6))]])
     cv2.fillPoly(mask, polygons, 255)
     masked = cv2.bitwise_and(edges, mask)
 
     # Hough line detection with adjusted parameters
-    lines = cv2.HoughLinesP(masked, 1, np.pi/180, 30, minLineLength=20, maxLineGap=200)
+    lines = cv2.HoughLinesP(masked, 1, np.pi/180, 30, minLineLength=40, maxLineGap=150)
 
     if lines is not None:
-        valid_lines = [line for line in lines]  # Keep all detected lines
+        valid_lines = [line for line in lines if is_valid_line(line)]
         
         if len(valid_lines) >= min_lines_threshold:
             message = "Lanes detected"
@@ -39,6 +39,15 @@ def lane_detection(image, min_lines_threshold=1):
 
     # Return the original (untouched) image and message
     return image, message
+
+def is_valid_line(line):
+    # Implement your logic to validate the line
+    # Example: Filter lines based on slope or position
+    for x1, y1, x2, y2 in line:
+        slope = (y2 - y1) / (x2 - x1) if (x2 - x1) != 0 else float('inf')
+        if abs(slope) > 0.5:  # Example condition to filter out near-horizontal lines
+            return True
+    return False
 
 @app.route('/')
 def index():
