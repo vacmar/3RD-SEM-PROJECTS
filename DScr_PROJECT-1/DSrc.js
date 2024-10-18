@@ -34,13 +34,21 @@ map.on('click', function(e) {
 });
 
 // Function to draw the path between the selected source and destination
+// Function to draw the path between the selected source and destination
 function drawPath() {
     if (points.length === 2) {
-        // Draw a polyline (straight line) between the two points
-        polyline = L.polyline(points, { color: 'blue' }).addTo(map);
+        // Use OpenRouteService to find the route between the two points
+        L.Routing.control({
+            waypoints: [
+                L.latLng(points[0][0], points[0][1]),
+                L.latLng(points[1][0], points[1][1])
+            ],
+            router: L.Routing.openrouteservice('your-api-key-here'),
+            geocoder: L.Control.Geocoder.nominatim()
+        }).addTo(map);
     }
 }
-
+// Function to reset the map
 // Function to reset the map
 function resetMap() {
     points = [];
@@ -51,7 +59,7 @@ function resetMap() {
 
     // Remove the polyline (route)
     if (polyline) {
-        map.removeLayer(polyline);
+        map.removeControl(polyline);
         polyline = null;
     }
 
